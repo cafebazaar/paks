@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: redis-standalone-$(.name)
+spec:
+  replicas: 1
+  selector:
+    name: redis-standalone-$(.name)
+    mode: standalone
+    provider: redis-$(.name)
+  template:
+    metadata:
+      labels:
+        name: redis-standalone-$(.name)
+        mode: standalone
+        provider: redis-$(.name)
+        app: redis-standalone-$(.name)
+    spec:
+      containers:
+      - name: redis-standalone-$(.name)
+        image: kubernetes/redis:v1
+        env:
+        - name: MASTER
+          value: "true"
+        ports:
+        - containerPort: $(.port)
+        volumeMounts:
+        - mountPath: /redis-master-data
+          name: data
+      volumes:
+        - name: data
+          emptyDir: {}
