@@ -1,5 +1,5 @@
 name: redis
-url: paks/redis-1.0/redis.yaml
+url: http://192.168.100.220/paks/redis-1.0/pak.yaml
 version: 1.0
 description: |
   Reliable, Scalable Redis on Kubernetes
