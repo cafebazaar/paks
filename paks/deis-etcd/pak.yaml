@@ -1,0 +1,34 @@
+name: deis-etcd
+url: http://192.168.100.220/paks/deis-etcd/pak.yaml
+version: "2-beta"
+description: |
+  Reliable, Scalable Redis on Kubernetes
+icon:  http://192.168.100.220/paks/deis-etcd/icon.png
+
+resources:
+  - discovery-rc.yaml
+  - discovery-token.yaml
+  - service.yaml
+  - discovery-service.yaml
+  - rc.yaml
+
+properties:
+  - name: name
+    description: Name of the instance
+    type: string
+    placeholder: i.e. foo-bar
+  - name: port
+    description: Listening port for etcd (client port)
+    type: int
+    default: 2379
+  - name: initialReplicas
+    description: |
+      The initial number of etcd nodes.
+      [The recommended etcd cluster size is 3, 5 or 7](https://coreos.com/etcd/docs/latest/admin_guide.html#optimal-cluster-size).
+    type: int
+    default: 3
+  - name: secretToken
+    description: |
+      A secret key for the discovery your etcd cluster
+    type: string
+    placeholder: 1234abcZ==

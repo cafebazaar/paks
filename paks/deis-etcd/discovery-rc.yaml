@@ -1,0 +1,44 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: deis-etcd-discovery-$(.name)
+  labels:
+    name: deis-etcd-discovery-$(.name)
+spec:
+  replicas: 1
+  selector:
+    name: deis-etcd-discovery-$(.name)
+  template:
+    metadata:
+      labels:
+        name: deis-etcd-discovery-$(.name)
+    spec:
+      volumes:
+        - name: discovery-token-$(.name)
+          secret:
+            secretName: deis-etcd-discovery-$(.name)-token
+      containers:
+        - name: deis-etcd-discovery-$(.name)
+          image: quay.io/deisci/etcd:v2-beta
+          imagePullPolicy: Always
+          command:
+            - /usr/local/bin/discovery
+          ports:
+            - containerPort: 2381
+          env:
+            - name: DEIS_ETCD_CLUSTER_SIZE
+              value: "$(.initialReplicas)"
+            - name: ETCD_LISTEN_CLIENT_URLS
+              value: http://0.0.0.0:2381
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          volumeMounts:
+            - name: discovery-token-$(.name)
+              readOnly: true
+              mountPath: /var/run/secrets/deis/etcd/discovery
