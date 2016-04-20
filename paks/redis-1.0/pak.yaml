@@ -1,9 +1,9 @@
 name: redis
-url: paks/redis-1.0/pak.yaml
+url: pak.yaml
 version: "1.0"
 description: |
   Reliable, Scalable Redis on Kubernetes
-icon:  paks/redis-1.0/icon.png
+icon: icon.png
 
 resources:
   - rc.yaml
