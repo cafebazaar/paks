@@ -1,9 +1,9 @@
 name: deis-etcd
-url: http://192.168.100.220/paks/deis-etcd/pak.yaml
+url: paks/deis-etcd/pak.yaml
 version: "2-beta"
 description: |
   Reliable, Scalable Redis on Kubernetes
-icon:  http://192.168.100.220/paks/deis-etcd/icon.png
+icon:  paks/deis-etcd/icon.png
 
 resources:
   - discovery-rc.yaml
