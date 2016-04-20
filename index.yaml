@@ -3,12 +3,12 @@ maintainer: Ali Alaee::ali.alaee@gmail.com
 
 packages:
   - name: redis
-    url: http://192.168.100.220/paks/redis-1.0/pak.yaml
+    url: paks/redis-1.0/pak.yaml
     version: "1.0"
     description: |
       this is a description
   - name: deis-etcd
-    url: http://192.168.100.220/paks/deis-etcd/pak.yaml
+    url: paks/deis-etcd/pak.yaml
     version: 2-beta
     description: |
       An Etcd service that can run inside of Kubernetes.
