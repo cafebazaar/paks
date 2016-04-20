@@ -1,5 +1,7 @@
 name: Main Repo
-maintainer: Ali Alaee::ali.alaee@gmail.com
+maintainers:
+  - Ali Alaee::ali.alaee@gmail.com
+  - Mohammad Nasirifar <far.nasiri.m@gmail.com> (@colonelmo)
 
 packages:
   - name: redis
@@ -12,3 +14,8 @@ packages:
     version: 2-beta
     description: |
       An Etcd service that can run inside of Kubernetes.
+  - name: talkative
+    url: paks/talkative/pak.yaml
+    version: "0.0.1"
+    description: |
+      Code is cheap, Talk me the talk.

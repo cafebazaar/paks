@@ -1,0 +1,19 @@
+name: talkative
+url: paks/talkative/pak.yaml
+version: "1.0"
+description: |
+  Verbose, stateless webserver. Talks a little too much. You have been warned.
+icon: icon.png
+
+resources:
+  - rc.yaml
+  - svc.yaml
+
+properties:
+  - name: name
+    description: Name of the instance
+    type: string
+  - name: port
+    description: port to listen on
+    type: int
+    default: 80

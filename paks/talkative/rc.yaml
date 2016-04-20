@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: talkative-standalone-$(.name)
+spec:
+  replicas: 2
+  selector:
+    name: talkative-standalone-$(.name)
+    mode: standalone
+    provider: talkative-$(.name)
+  template:
+    metadata:
+      labels:
+        name: talkative-standalone-$(.name)
+        mode: standalone
+        provider: talkative-$(.name)
+        app: talkative-standalone-$(.name)
+    spec:
+      containers:
+      - name: talkative-standalone-$(.name)
+        image: colonelmo/talkative:latest
+        ports:
+        - containerPort: $(.port)
