@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: talkative-standalone-$(.name)
 spec:
-  replicas: 2
+  replicas: $(.replicas)
   selector:
     name: talkative-standalone-$(.name)
     mode: standalone
