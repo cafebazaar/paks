@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: talkative-$(.name)
+  name: talkative-$(.gruop)
   labels:
-    provider: talkative-$(.name)
+    provider: talkative-$(.group)
 spec:
   ports:
   - port: $(.port)
   selector:
-    provider: talkative-$(.name)
+    provider: talkative-$(.group)

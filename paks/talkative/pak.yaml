@@ -10,9 +10,6 @@ resources:
   - svc.yaml
 
 properties:
-  - name: name
-    description: Name of the instance
-    type: string
   - name: port
     description: Port to listen on
     type: int
