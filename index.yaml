@@ -19,3 +19,9 @@ packages:
     version: "0.0.1"
     description: |
       Code is cheap, Talk me the talk.
+  - name: elasticsearch-cluster                                                 
+    url: paks/elasticsearch/pak.yaml
+    version: "1.0"
+    description: |
+      Clustered Elasticsearch
+    icon: icon.png
