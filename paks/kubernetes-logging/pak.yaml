@@ -1,0 +1,21 @@
+name: kubernetes-logging
+url: paks/kubernetes-logging/pak.yaml
+version: "1.0"
+description: |
+  Kuneretes logging addon with ELK.
+icon: icon.png
+
+resources:
+  - service-account.yaml
+  - elasticsearch-controller.yaml
+  - elasticsearch-logging-service.yaml
+  - elasticsearch-service.yaml
+  - fluentd-es.yaml
+  - kibana-controller.yaml
+  - kibana-service.yaml
+  
+properties:
+  - name: replicas
+    description: Number of replicas of elasticsearch
+    type: int
+    default: 1
