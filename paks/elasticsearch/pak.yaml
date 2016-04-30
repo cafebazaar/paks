@@ -6,7 +6,13 @@ description: |
 icon: icon.png
 
 resources:
-  - rc.yaml
+  - service-account.yaml
+  - master-rc.yaml
+  - discovery-svc.yaml
+
+  - client-rc.yaml  
+  - data-rc.yaml
+
   - svc.yaml
 
 properties:
