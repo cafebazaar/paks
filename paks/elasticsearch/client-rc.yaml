@@ -3,20 +3,20 @@ kind: ReplicationController
 metadata:
   name: es-client
   labels:
-    component: elasticsearch
+    component: es-$(.group)
     role: client
 spec:
-  replicas: 1
+  replicas: $(.client_nodes)
   selector:
-    component: elasticsearch
+    component: es-$(.group)
     role: client
   template:
     metadata:
       labels:
-        component: elasticsearch
+        component: es-$(.group)
         role: client
     spec:
-      serviceAccount: elasticsearch
+      serviceAccount: es-$(.group)
       containers:
       - name: es-client
         securityContext:

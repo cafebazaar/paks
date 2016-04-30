@@ -3,20 +3,20 @@ kind: ReplicationController
 metadata:
   name: es-master
   labels:
-    component: elasticsearch
+    component: es-$(.group)
     role: master
 spec:
-  replicas: 1
+  replicas: $(.master_nodes)
   selector:
-    component: elasticsearch
+    component: es-$(.group)
     role: master
   template:
     metadata:
       labels:
-        component: elasticsearch
+        component: es-$(.group)
         role: master
     spec:
-      serviceAccount: elasticsearch
+      serviceAccount: es-$(.group)
       containers:
       - name: es-master
         securityContext:
