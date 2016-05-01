@@ -21,6 +21,7 @@ COPY config /elasticsearch/config
 
 ADD do_not_use.yml /elasticsearch/config/elasticsearch.yml
 RUN /elasticsearch/bin/plugin install io.fabric8/elasticsearch-cloud-kubernetes/2.3.1 --verbose
+RUN /elasticsearch/bin/plugin install royrusso/elasticsearch-HQ --verbose
 ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 COPY run.sh /
 
