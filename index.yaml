@@ -2,6 +2,7 @@ name: Main Repo
 maintainers:
   - Ali Alaee::ali.alaee@gmail.com
   - Mohammad Nasirifar <far.nasiri.m@gmail.com> (@colonelmo)
+  - Ali Javadi <ali.javadi@cafebazaaar.ir>
 
 packages:
   - name: redis
@@ -25,3 +26,8 @@ packages:
     description: |
       Clustered Elasticsearch
     icon: icon.png
+  - name: kubernetes-logging
+    url: paks/kubernetes-logging/pak.yaml
+    version: "0.1"
+    description: |
+      Kubernetes logging addon with ELK.
