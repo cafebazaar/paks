@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: es-data
+  name: es-data-$(.group)
   labels:
     component: es-$(.group)
     role: data
@@ -18,7 +18,7 @@ spec:
     spec:
       serviceAccount: es-$(.group)
       containers:
-      - name: es-data
+      - name: es-data-$(.group)
         securityContext:
           privileged: true
           capabilities:
