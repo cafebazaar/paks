@@ -1,0 +1,31 @@
+name: elasticsearch-cluster
+url: pak.yaml
+version: "1.0"
+description: |
+  Clustered Elasticsearch
+icon: icon.png
+
+resources:
+  - service-account.yaml
+  - master-rc.yaml
+  - discovery-svc.yaml
+
+  - client-rc.yaml  
+  - data-rc.yaml
+
+  - svc.yaml
+
+properties:
+  - name: client_nodes
+    description: Number of client nodes (HTTP api)
+    type: int
+    default: 1
+  - name: master_nodes
+    description: Number of masters (clustering management)
+    type: int
+    default: 1
+  - name: data_nodes
+    description: Number of data nodes (storing and indexing data)
+    type: int
+    default: 3
+
