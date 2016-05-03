@@ -1,11 +1,10 @@
 #!/bin/sh
 
-# provision elasticsearch user
-addgroup sudo
-adduser -D -g '' elasticsearch
-adduser elasticsearch sudo
-chown -R elasticsearch /elasticsearch /data
-echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+# # provision elasticsearch user
+# adduser -D -g '' elasticsearch
+# adduser elasticsearch sudo
+# chown -R elasticsearch /elasticsearch /data
+# echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # set environment
 export CLUSTER_NAME=${CLUSTER_NAME:-elasticsearch-default}
@@ -24,4 +23,4 @@ export DISCOVERY_SERVICE=${DISCOVERY_SERVICE:-elasticsearch-discovery}
 ulimit -l unlimited
 
 # run
-sudo -E -u elasticsearch /elasticsearch/bin/elasticsearch
+/elasticsearch/bin/elasticsearch
