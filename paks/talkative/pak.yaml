@@ -8,6 +8,8 @@ icon: icon.png
 resources:
   - rc.yaml
   - svc.yaml
+  - secret.yaml
+  - ingress.yaml
 
 properties:
   - name: port
@@ -18,3 +20,12 @@ properties:
     description: Number of replicas
     type: int
     default: 1
+  - name: domain
+    description: Domain
+    type: string
+  - name: tls_key
+    description: Base64 SSL key
+    type: string
+  - name: tls_cert
+    description: Base64 SSL certificate
+    type: string
