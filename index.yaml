@@ -31,3 +31,8 @@ packages:
     version: "0.1"
     description: |
       Kubernetes logging addon with ELK.
+  - name: ingress-controller
+    url: paks/ingress-controller/pak.yaml
+    version: "0.1"
+    description: |
+      Ingress Controller for Kubernetes.

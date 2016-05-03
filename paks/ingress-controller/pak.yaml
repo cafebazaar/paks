@@ -1,0 +1,17 @@
+name: kubernetes-logging
+url: paks/ingress-controller/pak.yaml
+version: "0.1"
+description: |
+  Ingress Controller for Kubernetes.
+icon: icon.png
+
+resources:
+  - daemonset.yaml
+  - default-backend-controller.yaml
+  - default-backend-service.yaml
+  
+properties:
+  - name: replicas
+    description: Number of replicas of default backend
+    type: int
+    default: 1
