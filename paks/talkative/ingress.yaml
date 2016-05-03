@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: talkative-$(.group)
+spec:
+  tls:
+    - hosts: 
+      - $(.domain)
+      secretName: talkative-tls-secret-$(.group)
+  rules:
+  - host: $(.domain)
+    http:
+      paths:
+      - backend:
+          serviceName: talkative-$(.group)
+          servicePort: $(.port)
+        path: /
