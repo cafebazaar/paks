@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# # provision elasticsearch user
+# provision elasticsearch user
+# addgroup sudo
 # adduser -D -g '' elasticsearch
 # adduser elasticsearch sudo
 # chown -R elasticsearch /elasticsearch /data
@@ -23,4 +24,4 @@ export DISCOVERY_SERVICE=${DISCOVERY_SERVICE:-elasticsearch-discovery}
 ulimit -l unlimited
 
 # run
-/elasticsearch/bin/elasticsearch
+/elasticsearch/bin/elasticsearch -Des.insecure.allow.root=true

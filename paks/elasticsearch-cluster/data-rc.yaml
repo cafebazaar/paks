@@ -37,6 +37,8 @@ spec:
           value: "false"
         - name: HTTP_ENABLE
           value: "false"
+        - name: DISCOVERY_SERVICE
+          value: es-$(.group)-discovery
         ports:
         - containerPort: 9300
           name: transport
