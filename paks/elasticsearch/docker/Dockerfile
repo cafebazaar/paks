@@ -1,4 +1,4 @@
-FROM java:openjdk-8-jre-alpine
+FROM java:8-jre
 
 MAINTAINER Ali Alaee <ali.alaee@gmail.com> (@alialaee)
 MAINTAINER Mohammad Nasirifar <far.nasiri.m@gmail.com> (@colonelmo)
@@ -7,13 +7,8 @@ EXPOSE 9200 9300
 
 ENV VERSION 2.3.1
 
-RUN apk add --update curl ca-certificates sudo && \
-
-  ( curl -Lskj https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$VERSION/elasticsearch-$VERSION.tar.gz | \
-  gunzip -c - | tar xf - ) && \
-  mv /elasticsearch-$VERSION /elasticsearch && \
-  rm -rf $(find /elasticsearch | egrep "(\.(exe|bat)$|sigar/.*(dll|winnt|x86-linux|solaris|ia64|freebsd|macosx))") && \
-  apk del curl
+RUN curl --progress https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$VERSION/elasticsearch-$VERSION.tar.gz -o /elasticsearch.tar.gz
+RUN tar -xf /elasticsearch.tar.gz && rm /elasticsearch.tar.gz && mv /elasticsearch-$VERSION /elasticsearch
 
 VOLUME ["/data"]
 
