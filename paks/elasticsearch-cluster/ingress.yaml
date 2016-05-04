@@ -1,0 +1,19 @@
+$(if and .domain .tls_cert .tls_key)
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: es-$(.group)
+spec:
+  tls:
+    - hosts: 
+      - $(.domain)
+      secretName: es-tls-secret-$(.group)
+  rules:
+  - host: $(.domain)
+    http:
+      paths:
+      - backend:
+          serviceName: es-$(.group)
+          servicePort: 9200
+        path: /
+$(end)
