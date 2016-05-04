@@ -23,9 +23,12 @@ properties:
   - name: domain
     description: Domain
     type: string
+    default: ""
   - name: tls_key
     description: Base64 SSL key
     type: string
+    default: ""
   - name: tls_cert
     description: Base64 SSL certificate
     type: string
+    default: ""
