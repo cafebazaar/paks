@@ -15,6 +15,9 @@ resources:
 
   - svc.yaml
 
+  - ingress.yaml
+  - secret.yaml
+
 properties:
   - name: client_nodes
     description: Number of client nodes (HTTP api)
@@ -28,4 +31,15 @@ properties:
     description: Number of data nodes (storing and indexing data)
     type: int
     default: 3
-
+  - name: domain
+    description: Domain
+    type: string
+    default: ""
+  - name: tls_key
+    description: Base64 SSL key
+    type: string
+    default: ""
+  - name: tls_cert
+    description: Base64 SSL certificate
+    type: string
+    default: ""
