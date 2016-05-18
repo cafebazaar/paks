@@ -1,13 +1,15 @@
-$(if and .domain .tls_cert .tls_key)
+$(if .domain)
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: es-$(.group)
 spec:
+$(if and .tls_cert .tls_key)
   tls:
-    - hosts: 
+    - hosts:
       - $(.domain)
       secretName: es-tls-secret-$(.group)
+$(end)
   rules:
   - host: $(.domain)
     http:
