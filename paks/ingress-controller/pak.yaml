@@ -9,7 +9,9 @@ resources:
   - daemonset.yaml
   - default-backend-controller.yaml
   - default-backend-service.yaml
-  
+  - tcp-configmap.yaml
+  - udp-configmap.yaml
+
 properties:
   - name: replicas
     description: Number of replicas of default backend
